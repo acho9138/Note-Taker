@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid');
 
 // Default application settings
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 app.use(express.static('public'));
 const publicPath = __dirname + "/public";
 app.use(express.urlencoded({ extended: true }));
