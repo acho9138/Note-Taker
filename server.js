@@ -33,6 +33,15 @@ app.post("/api/notes", (req, res) => {
     return res.status(201).end();
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+    let currentNotes = getData()
+    index = currentNotes.findIndex(note => note.id === req.params.id);
+    currentNotes.splice(index, 1)
+    setData(currentNotes);
+
+    return res.status(202).end();
+});
+
 const getData = () => {
     try {
         const jsonString = fs.readFileSync("./db/db.json")
