@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Display index page when app is run
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
     res.sendFile(path.join(publicPath, "index.html"));
 });
 
